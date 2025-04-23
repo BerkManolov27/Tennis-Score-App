@@ -33,7 +33,7 @@ namespace Tennis_Score_App
         }
 
         private static Dictionary<string, int> playerWithPoints = new();
-        private static Dictionary<(string, int), List<(string, int)>> games = new();
+
 
         private void OnLoad(object sender, EventArgs e)
         {
@@ -74,7 +74,7 @@ namespace Tennis_Score_App
         {
             this.listViewLatestGame.Items.Clear();
 
-            foreach (var game in games.Reverse())
+            foreach (var game in gamess.Reverse())
             {
                 foreach (var item in game.Value)
                 {
@@ -124,7 +124,7 @@ namespace Tennis_Score_App
             {
                 if (newGameForm.ShowDialog() == DialogResult.OK)
                 {
-                    AddNewGame(newGameForm.FirstPlayer, newGameForm.SecondPlayer);   
+                    AddNewGame(newGameForm.FirstPlayer, newGameForm.SecondPlayer);
                 }
             }
         }
@@ -141,17 +141,17 @@ namespace Tennis_Score_App
         }
         private void FillGameData((string, int) firstPlayer, (string, int) secondPlayer)
         {
-            if (games.ContainsKey(firstPlayer))
+            if (gamess.ContainsKey(firstPlayer))
             {
-                games[firstPlayer].Add(secondPlayer);
+                gamess[firstPlayer].Add(secondPlayer);
             }
-            else if (games.ContainsKey(secondPlayer))
+            else if (gamess.ContainsKey(secondPlayer))
             {
-                games[secondPlayer].Add(firstPlayer);
+                gamess[secondPlayer].Add(firstPlayer);
             }
             else
             {
-                games.Add(firstPlayer, new List<(string, int)> { secondPlayer });
+                gamess.Add(firstPlayer, new List<(string, int)> { secondPlayer });
             }
         }
 
@@ -182,10 +182,14 @@ namespace Tennis_Score_App
 
         private Dictionary<(string, int), List<(string, int)>> GetPlayerGames
              (string playerName)
-            => games.Where(x => x.Key.Item1 == playerName
+            => gamess.Where(x => x.Key.Item1 == playerName
             || x.Value.Any(y => y.Item1 == playerName))
             .ToDictionary(x => x.Key, x => x.Value.Where(y => y.Item1 == playerName
             || x.Key.Item1 == playerName).ToList());
 
+        private void listViewLatestGame_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

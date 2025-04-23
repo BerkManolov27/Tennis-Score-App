@@ -46,9 +46,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(250, 9);
+            label1.Location = new Point(219, 7);
             label1.Name = "label1";
-            label1.Size = new Size(266, 60);
+            label1.Size = new Size(212, 47);
             label1.TabIndex = 0;
             label1.Text = "Tennis Score";
             // 
@@ -56,9 +56,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.Location = new Point(33, 71);
+            label2.Location = new Point(29, 53);
             label2.Name = "label2";
-            label2.Size = new Size(125, 41);
+            label2.Size = new Size(100, 32);
             label2.TabIndex = 4;
             label2.Text = "Ranking";
             label2.Click += label2_Click;
@@ -67,9 +67,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label3.Location = new Point(33, 273);
+            label3.Location = new Point(29, 205);
             label3.Name = "label3";
-            label3.Size = new Size(182, 41);
+            label3.Size = new Size(145, 32);
             label3.TabIndex = 5;
             label3.Text = "Latest Game\r\n";
             // 
@@ -77,9 +77,10 @@
             // 
             listViewRanking.BackColor = Color.Orange;
             listViewRanking.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
-            listViewRanking.Location = new Point(33, 115);
+            listViewRanking.Location = new Point(29, 86);
+            listViewRanking.Margin = new Padding(3, 2, 3, 2);
             listViewRanking.Name = "listViewRanking";
-            listViewRanking.Size = new Size(620, 121);
+            listViewRanking.Size = new Size(543, 92);
             listViewRanking.TabIndex = 6;
             listViewRanking.UseCompatibleStateImageBehavior = false;
             listViewRanking.View = View.Details;
@@ -99,12 +100,14 @@
             // 
             listViewLatestGame.BackColor = Color.Orange;
             listViewLatestGame.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
-            listViewLatestGame.Location = new Point(33, 317);
+            listViewLatestGame.Location = new Point(29, 238);
+            listViewLatestGame.Margin = new Padding(3, 2, 3, 2);
             listViewLatestGame.Name = "listViewLatestGame";
-            listViewLatestGame.Size = new Size(620, 121);
+            listViewLatestGame.Size = new Size(543, 92);
             listViewLatestGame.TabIndex = 7;
             listViewLatestGame.UseCompatibleStateImageBehavior = false;
             listViewLatestGame.View = View.Details;
+            listViewLatestGame.SelectedIndexChanged += listViewLatestGame_SelectedIndexChanged;
             // 
             // columnHeader3
             // 
@@ -129,25 +132,28 @@
             // button1
             // 
             button1.BackColor = Color.DeepSkyBlue;
-            button1.Location = new Point(578, 251);
+            button1.Location = new Point(506, 188);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(158, 51);
+            button1.Size = new Size(138, 38);
             button1.TabIndex = 9;
             button1.Text = "Add New Game";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += AddNewGameButtonClick;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Khaki;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(button1);
             Controls.Add(listViewLatestGame);
             Controls.Add(listViewRanking);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "ScoreForm";
             Load += Form1_Load;
