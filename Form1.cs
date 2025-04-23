@@ -187,10 +187,5 @@ namespace Tennis_Score_App
             .ToDictionary(x => x.Key, x => x.Value.Where(y => y.Item1 == playerName
             || x.Key.Item1 == playerName).ToList());
 
-
-
-
-
-
     }
 }
