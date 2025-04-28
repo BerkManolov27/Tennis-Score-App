@@ -125,6 +125,7 @@
             savebutton2.TabIndex = 9;
             savebutton2.Text = "Save";
             savebutton2.UseVisualStyleBackColor = false;
+            savebutton2.Click += ButtonSaveGameClick;
             // 
             // fplayernumericUpDown1
             // 

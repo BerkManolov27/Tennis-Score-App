@@ -63,12 +63,8 @@ namespace Tennis_Score_App
 
         }
 
-        private static Dictionary<string, int> playersWithPoints = new()
-        {
-            {"small Bark", 4 },
-            {"big Bark", 4 },
-            {"medium Brek", 6}
-        };
+        private static Dictionary<string, int> playersWithPoints = new();
+
 
         private void FillLatestGamesListView()
         {
@@ -163,7 +159,7 @@ namespace Tennis_Score_App
             }
             else
             {
-                playersWithPoints.Add(player.Item1, player.Item2);
+                playersWithPoints[player.Item1] = player.Item2;
             }
         }
 
